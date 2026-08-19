@@ -1,0 +1,16 @@
+# Render.com deployment configuration
+
+services:
+  - type: web
+    name: repo4all
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: GITHUB_TOKEN
+        sync: false   # Set this in Render dashboard → Environment → GITHUB_TOKEN
